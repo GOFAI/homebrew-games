@@ -10,10 +10,10 @@ class Dungeon < Formula
     chdir "src" do
       # look for game files where homebrew installed them, not pwd
       inreplace "game.f" do |s|
-        s.gsub! "FILE='dindx',STATUS='OLD',", "#{opt_pkgshare}/dindx',"
+        s.gsub! "FILE='dindx',STATUS='OLD',", "#{opt_share}/dindx',"
         s.gsub! "1	FORM='FORMATTED',ACCESS='SEQUENTIAL',ERR=1900)", "1	STATUS='OLD',FORM='FORMATTED',
 	2	ACCESS='SEQUENTIAL',ERR=1900)"
-        s.gsub! "FILE='dtext',STATUS='OLD',", "FILE='#{opt_pkgshare}/dtext',"
+        s.gsub! "FILE='dtext',STATUS='OLD',", "FILE='#{opt_share}/dtext',"
         s.gsub! "1	FORM='UNFORMATTED',ACCESS='DIRECT',", "1	STATUS='OLD',FORM='UNFORMATTED',ACCESS='DIRECT',"
       end
       system "make"
